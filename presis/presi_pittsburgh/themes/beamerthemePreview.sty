@@ -1,0 +1,118 @@
+\ProvidesPackage{beamerthemePreview}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\beamer@compresstrue
+\ProcessOptionsBeamer
+
+\mode<presentation>
+
+%\useinnertheme{rectangles}
+\useinnertheme{rounded}
+
+\definecolor{iblack}{RGB}{20,20,20}
+
+\definecolor{PREVIEWlight}{HTML}{078BCC}
+\definecolor{PREVIEWdark}{HTML}{1E61AC}
+
+% \usepackage{arev}
+\usepackage[default]{sourcesanspro}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% \newcommand{\tpt}{\color{hublue}\hspace{-2.8pt}$\bullet$ \hspace{5pt}}
+% \newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\setbeamercolor{normal text}{fg=iblack}
+\setbeamercolor{titlelike}{fg=PREVIEWdark}
+\setbeamercolor{structure}{fg=PREVIEWdark}
+\setbeamercolor{footer}{fg=iblack,bg=black!20}
+
+\setbeamercolor{alerted text}{fg=PREVIEWlight}
+
+\setbeamercolor{block title}{fg=PREVIEWdark,bg=PREVIEWdark!25}
+\setbeamercolor{block title alerted}{use=alerted text,fg=alerted text.fg,bg=alerted text.fg!20!bg}
+\setbeamercolor{block title example}{use=example text,fg=example text.fg,bg=example text.fg!20!bg}
+
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!80!bg}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!80!bg}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!80!bg}
+
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{author}{fg=white}
+\setbeamercolor{date}{fg=white}
+
+\setbeamerfont{title}{size=\LARGE,shape=\scshape}
+\setbeamerfont{author}{size=\normalsize}
+
+\setbeamertemplate{itemize items}[triangle]
+%\setbeamertemplate{enumerate items}[circle]
+\setbeamertemplate{section in toc}[circle]
+
+% \setbeamertemplate{enumerate item}{\circled{\insertenumlabel}}
+%\setbeamertemplate{itemize item}{\raise0.6pt\hbox{\textbullet}}
+
+\usenavigationsymbolstemplate{}
+\setbeamercovered{invisible}
+
+\defbeamertemplate*{frametitle}{dietzel theme} {%
+\tikz[overlay,remember picture]{%
+\fill[PREVIEWdark] (current page.north west) rectangle ($(current page.north east)-(0,2em)$);
+\node[anchor=east] at ($(current page.north east) - (0,1em)$) {\includegraphics[height=1.2em]{themes/preview}};
+\node[anchor=west,
+    text=white,
+    font=\usebeamerfont{frametitle}
+    ] at ($(current page.north west) + (0.5em,-1.25em)$) {\insertframetitle};
+}%
+}
+
+
+\defbeamertemplate*{footline}{dietzel theme} {%
+\ifnum \insertpagenumber=1
+      \leavevmode%
+      \hbox{%
+      \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,center]{}%
+        % empty environment to raise height
+      \end{beamercolorbox}}%
+      \vskip0pt%
+    \else
+% \begin{beamercolorbox}[ht=4ex,dp=0pt,%
+  % leftskip=0pt]{footer}%
+\raisebox{-0.5em}{\includegraphics[height=3.5ex]{themes/EU}}\quad
+This project has received funding from the European Union’s Horizon 2020  programme under grant agreement No 636892.\hfill\textbf{\insertframenumber}\quad\null
+% \end{beamercolorbox}%
+  % \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+  %   leftskip=.3cm,rightskip=.3cm plus1fil]{footer}%
+  %   \insertshorttitle
+  %   \hfill
+  %   \insertshortauthor
+  %   \hfill
+  %   \insertframenumber{}
+  % \end{beamercolorbox}%
+  \fi
+}
+
+\defbeamertemplate*{title page}{dietzel theme} {
+\tikz[overlay, remember picture]{%
+  
+% Blue color gradient
+\shade[top color=PREVIEWlight,bottom color=PREVIEWdark] (current page.north west) rectangle (current page.south east);
+}
+  
+  \begin{center}
+\vfill
+\quad\includegraphics[width=.75\linewidth]{themes/preview}
+\vfill
+  
+  {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}\par
+  \vspace{1.5ex}
+  \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor{}
+  
+  \insertdate
+  \end{center}
+  \vfill
+}
+
+\setbeamertemplate{section in toc}{
+  \circled{\inserttocsectionnumber}\quad\inserttocsection
+}

@@ -1,0 +1,34 @@
+* BACKLOG A large portion of money is locked as long-term investment:
+** TODAY 1.eD1 Multi-currency time series plot of percentage of the money supply has been stale since over 6,12,18,24 months 
+*** For all cryptocurrencies, over all days: blockchain.block.outputs.spent_before(dynamically 1,2, X years)
+
+** ON-HOLD 1.eD2 Multi-currency time series plot of median and average age of block inputs for each day 
+*** For all cryptocurrencies, over all days: median(blockchain.block.inputs.age) and median(blockchain.block.inputs.age)
+** ON-HOLD 1.cD1 Multi-currency plot of days since last spend against the value of inputs with this respective amount of days. 
+*** For all cryptocurrencies, for one day, for all blocks, for all inputs: time since last spent
+* URGENT Hype / Crash leads to more coins flowing to / from exchanges and Crashes lead to more coin days being destroyed, Hype to less coin days being destroyed
+** BACKLOG 2.eT1 VAR analysis with Granger tests: bdd. = f(price., supply., number of tx., wikitrend, googletrend, number of days with increasing prices, number of days with falling prices) 
+** URGENT 2.eT1 VAR analysis with Granger tests: "sleep-hop-sleep-txes(period)" = f(price, supply, number of tx, wikitrend, googletrend) 
+** URGENT 2.eT2 VAR analysis with Granger tests: "txes from or to exchanges" = f(price, supply, number of tx, wikitrend, googletrend)
+** URGENT 2.eT2 VAR analysis with Granger tests: "non-circluating money supply" = f(price, supply, number of tx, wikitrend, googletrend)
+* BACKLOG Newly mined money sleeps:
+** 4.eD1 Multi-currency time series plot: For all days, "days that will sleep" for coinbase transaction outputs
+* BACKLOG Descriptive table for measures:
+** 5.eT1 simply mean, median, sd, ...
+* BACKLOG The 3 newly proposed measures differ only slightly
+** 6.cD1 Scatterplots, +corrleation coefficient in text
+* BACKLOG Our "moneyness" measure is robust to hype cycles, Ricardian velocity is not
+** 7.eT1 VAR analysis with Granger tests: "moneyness." = f(price., supply., number of tx., wikitrend, googletrend, number of days with falling prices) 
+** 7.eT2 VAR analysis with Granger tests: "velocity." = f(price., supply., number of tx., wikitrend, googletrend, number of days with falling prices) 
+** 7.eT3 VAR analysis with Granger tests: "velocity-moneyness" = f(price., supply., number of tx., wikitrend, googletrend, number of days with falling prices) 
+* BACKLOG We can measure, how much Bitcoin and it's competition are used as medium-of-exchange
+** 8.cD1 Multi-currency plot of "moneyness"
+** 8.cD2 Multi-currency Histograms
+** 8.cD3 Multi-currency QQplots?
+** 8.eT1 Significance test (t-test) for the highest time series
+* BACKLOG The simple measures are a pretty bad approximation for the real velocity
+** 9.cD1 Multi-currency plot for approx. measures
+** 9.cT1 Pearson-Corr-Table for all currencies and measures
+** 9.cT2 MSE and MAE for all currencies and measures
+* BACKLOG The normal velo measure is very skewed as off-chain tx are missing
+** BACKLOG 10.eD1 Multi-currency plot for velo with off-chain trading (If we would have a lot of time)
